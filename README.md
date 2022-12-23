@@ -15,3 +15,4 @@ learning rust
     - another quick refresher of rust syntax
 - [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html)
 - [:crab: Small exercises to get you used to reading and writing Rust code!](https://github.com/rust-lang/rustlings)
+- [Comprehensive Rust :crab:](https://google.github.io/comprehensive-rust/welcome.html)
