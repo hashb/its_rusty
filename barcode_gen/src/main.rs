@@ -60,9 +60,9 @@ fn main() -> Result<(), Error> {
 
         let mut output = File::create(path)?;
         for perm in CODES.keys().permutations(idx).unique() {
-            write!(
+            writeln!(
                 output,
-                "{},{}0{}0{}\n",
+                "{},{}0{}0{}",
                 join(&perm, ""),
                 EDGE,
                 join(
