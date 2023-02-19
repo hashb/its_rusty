@@ -1,13 +1,11 @@
-use itertools::free::join;
-use itertools::Itertools;
-use phf::phf_map;
-use rayon::prelude::*;
-// use std::fs::File;
-// use std::io::{BufWriter, Error, Write};
 use compress_io::{
     compress::CompressIo,
     compress_type::{CompressThreads, CompressType},
 };
+use itertools::free::join;
+use itertools::Itertools;
+use phf::phf_map;
+use rayon::prelude::*;
 use std::io::{Error, Write};
 
 // https://github.com/WhyNotHugo/python-barcode/blob/main/barcode/codex.py
@@ -61,33 +59,12 @@ const EDGE: &str = "100010111011101";
 
 fn main() -> Result<(), Error> {
     (1..7).into_par_iter().for_each(|idx| {
-        // let path = format!("lines{idx}.txt");
-        // let mut output = BufWriter::new(File::create(path).unwrap());
-
         let mut output = CompressIo::new()
             .path(format!("barcodes_{idx}"))
             .ctype(CompressType::Zstd)
             .cthreads(CompressThreads::Set(4))
             .bufwriter()
             .unwrap();
-
-        // let dataset = CODES.keys().permutations(idx).unique().map(|v| {
-        //     format!(
-        //         "{},{}0{}0{}",
-        //         join(&v, ""),
-        //         EDGE,
-        //         join(
-        //             v.iter()
-        //                 .map(|x| CODES.get(x).unwrap())
-        //                 .collect::<Vec<&&str>>(),
-        //             "0"
-        //         ),
-        //         EDGE
-        //     )
-        // });
-        // for d in dataset {
-        //     writeln!(output, "{}", d)?;
-        // }
 
         for perm in CODES.keys().permutations(idx) {
             writeln!(
