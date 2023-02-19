@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 fn multiply(x: i32, y: i32) -> i32 {
     x * y
 }
@@ -16,8 +18,8 @@ fn implicit_conversions() {
 
 fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
     let mut ret = matrix;
-    for i in 0..ret.len(){
-        for j in 0..ret[i].len(){
+    for i in 0..ret.len() {
+        for j in 0..ret[i].len() {
             ret[i][j] = matrix[j][i];
         }
     }
@@ -25,8 +27,18 @@ fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
 }
 
 fn pretty_print(matrix: &[[i32; 3]; 3]) {
-    for row in matrix{
+    for row in matrix {
         for c in row {
+            print!("{c}, ");
+        }
+        println!();
+    }
+    println!();
+}
+
+fn pretty_print_slice(matrix: &[&[i32]]) {
+    for row in matrix.iter() {
+        for c in row.iter() {
             print!("{c}, ");
         }
         println!();
@@ -43,6 +55,8 @@ fn array_and_for_loops() {
 
     println!("matrix:");
     pretty_print(&matrix);
+    // we need to make slices of slices
+    // pretty_print_slice(&matrix.as_slice());
 
     let transposed = transpose(matrix);
     println!("transposed:");
