@@ -6,8 +6,7 @@ use std::fs::File;
 use std::io::{Error, Write};
 
 // https://github.com/WhyNotHugo/python-barcode/blob/main/barcode/codex.py
-
-static CODES: phf::Map<&'static str, &'static str> = phf_map! {
+ const CODES: phf::Map<&str, &str> = phf_map! {
  "0"=>"101000111011101",
  "1"=>"111010001010111",
  "2"=>"101110001010111",
@@ -74,8 +73,8 @@ fn main() -> Result<(), Error> {
                 ),
                 EDGE
             )?;
-            // println!("{}", join(perm,""));
         }
     }
+
     Ok(())
 }
