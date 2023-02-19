@@ -55,7 +55,7 @@ use std::io::{Error, Write};
 const EDGE: &str = "100010111011101";
 
 fn main() -> Result<(), Error> {
-    for idx in 1..5 {
+    for idx in 1..6 {
         let path = format!("lines{idx}.txt");
 
         let mut output = File::create(path)?;
