@@ -17,3 +17,4 @@ learning rust
 - [:crab: Small exercises to get you used to reading and writing Rust code!](https://github.com/rust-lang/rustlings)
 - [Comprehensive Rust :crab:](https://google.github.io/comprehensive-rust/welcome.html)
 - [24 Days of Rust](https://zsiciarz.github.io/24daysofrust/index.html)
+- [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/intro.html)
